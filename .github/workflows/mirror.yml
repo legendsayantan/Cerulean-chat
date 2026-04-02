@@ -1,0 +1,46 @@
+# This workflow automatically pushes all commits, branches, and tags 
+# from this GitHub repository over to the corresponding GitLab repository.
+
+name: Mirror to GitLab
+
+on:
+  push:
+    branches:
+      - "**"    # Triggers on pushes to any branch
+    tags:
+      - "*"     # Triggers on any new tag creation
+
+jobs:
+  mirror-to-gitlab:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository with full commit history
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Crucial: Fetches all history so the mirror is exact
+
+      # 2. Push to GitLab
+      - name: Push to GitLab
+        env:
+          # Your GitLab Personal Access Token (stored in GitHub Secrets)
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+
+          GITLAB_REPO: gitlab.com/Cerulean-Chat/Home.git
+
+        run: |
+          # Configure git to use a dummy identity for the push
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+
+          echo "Setting up GitLab remote..."
+          git remote add mirror "https://oauth2:${GITLAB_TOKEN}@${GITLAB_REPO}"
+          
+          echo "Pushing branches and tags to GitLab..."
+          
+          # Force push all branches and tags to ensure the mirror is an exact match
+          git push mirror --all --force
+          git push mirror --tags --force
+          
+          echo "Mirror sync complete!"
