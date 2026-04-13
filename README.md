@@ -25,7 +25,7 @@ Official builds are distributed through the following channels:
 
 **Cerulean is not public software.**
 
-Access is currently restricted to my sponsors on GitHub. To obtain VIP Access, please follow the steps below:
+Access is currently restricted to testers and my sponsors on GitHub. To obtain VIP Access, please follow the steps below:
 
 1. **Sponsorship:** Become a sponsor of [@legendsayantan](https://github.com/sponsors/legendsayantan) on GitHub.
 2. **Verification:** Sign in to [Fundware](https://fundware.pages.dev) using your GitHub account.
