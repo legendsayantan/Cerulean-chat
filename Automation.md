@@ -9,7 +9,17 @@ You can trigger these intents programmatically via your own code, or by using po
 * [MacroDroid](https://play.google.com/store/apps/details?id=com.arlosoft.macrodroid)
 * [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm)
 
-#### Base Authentication Parameters
+#### Configuration
+You should send the broadcast to the following package :
+```
+dev.legendsayantan.cerulean
+```
+and the following receiver :
+```
+dev.legendsayantan.cerulean.broadcast.Receiver
+```
+
+#### Authentication Parameters
 Every broadcast intent sent to Cerulean **must** include the following string extras for security validation:
 
 | Extra Key | Type   | Description |
