@@ -15,7 +15,7 @@ Every broadcast intent sent to Cerulean **must** include the following string ex
 | Extra Key | Type   | Description |
 | :--- | :--- | :--- |
 | `session` | String | Your active session ID, generally your country code + phone number (no symbols, no spaces). |
-| `key`     | String | The broadcast receiver key found inside cerulean settings. |
+| `key`     | String | The broadcast receiver key found inside Automation Settings of Cerulean. |
 
 ---
 
